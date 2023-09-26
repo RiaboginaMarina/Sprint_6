@@ -16,15 +16,16 @@ public class LionParameterizedTest {
         this.haseMane = haseMane;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Наличие гривы. Тестовые данные: {0}, {1}")
     public static Object[][] getHaseMane() {
         return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
         };
     }
+
     @Test
-    public void doesHaveMainForMaleAndFemale() throws Exception{
+    public void doesHaveMainForMaleAndFemale() throws Exception {
         Lion lion = new Lion(sex, new Feline());
         assertEquals(haseMane, lion.doesHaveMane());
 

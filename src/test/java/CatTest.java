@@ -8,15 +8,18 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
+    @Spy
+    Feline feline;
+
     @Test
-    public void getSound(){
+    public void getSound() {
         Cat cat = new Cat(new Feline());
         assertEquals("Мяу", cat.getSound());
     }
-    @Spy
-    Feline feline;
+
     @Test
     public void getFood() throws Exception {
         Cat cat = new Cat(feline);
